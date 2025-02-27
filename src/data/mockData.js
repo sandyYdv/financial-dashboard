@@ -43,6 +43,7 @@ export const expenses = [
   { category: "Entertainment", amount: 200 },
   { category: "Bills", amount: 400 },
   { category: "Investments", amount: 300 },
+  { category: "Others", amount: 300 },
 ];
 
 export const balanceHistory = [5000, 5200, 4800, 5300, 5500, 5700];

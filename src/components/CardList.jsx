@@ -14,7 +14,7 @@ const CardList = () => {
           See All
         </a>
       </div>
-      <div className="flex w-[1110px]">
+      <div className="flex">
         {cards?.map((card, i) => {
           return (
             <div
@@ -23,7 +23,8 @@ const CardList = () => {
                 i % 2 === 0
                   ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white"
                   : "bg-white shadow-md"
-              }`}>
+              }`}
+            >
               <div className="flex justify-between items-center mb-4">
                 <div>
                   <label className="text-xs font-semibold uppercase text-gray-400">
@@ -50,7 +51,8 @@ const CardList = () => {
               <div
                 className={`mt-4 flex justify-between items-center p-4 ${
                   i % 2 === 0 ? "bg-[#5B5A6F]" : ""
-                }`}>
+                }`}
+              >
                 <p className="font-mono">{card?.number}</p>
                 <div
                   className={`w-8 h-5 rounded-full ${
