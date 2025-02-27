@@ -16,8 +16,27 @@ export const cards = [
 ];
 
 export const transactions = [
-  { id: 1, name: "Amazon Purchase", amount: -150, date: "Feb 20, 2025" },
-  { id: 2, name: "Salary Deposit", amount: 2500, date: "Feb 18, 2025" },
+  {
+    icon: "💳",
+    title: "Deposit from my Card",
+    date: "28 January 2021",
+    amount: "-$850",
+    isNegative: true,
+  },
+  {
+    icon: "🅿️",
+    title: "Deposit Paypal",
+    date: "25 January 2021",
+    amount: "+$2,500",
+    isNegative: false,
+  },
+  {
+    icon: "💰",
+    title: "Jemi Wilson",
+    date: "21 January 2021",
+    amount: "+$5,400",
+    isNegative: false,
+  },
 ];
 
 export const expenses = [

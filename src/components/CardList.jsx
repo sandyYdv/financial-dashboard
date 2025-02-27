@@ -7,7 +7,7 @@ const CardList = () => {
   console.log("Cards", cards);
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-gray-100">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-semibold">My Cards</h3>
         <a href="#" className="text-blue-500">
