@@ -9,6 +9,7 @@ const Settings = () => {
   const [activeTab, setActiveTab] = useState("Edit Profile");
   const tabs = ["Edit Profile", "Preferences", "Security"];
   const [profileData, setProfileData] = useState(user);
+  const [errors, setErrors] = useState({});
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -28,10 +29,27 @@ const Settings = () => {
       profilePicture: URL.createObjectURL(e.target.files[0]),
     }));
   };
+  const validateForm = () => {
+    let newErrors = {};
+    if (!profileData.name) newErrors.name = "Name is required.";
+    if (!profileData.email) newErrors.email = "Email is required.";
+    else if (!/^\S+@\S+\.\S+$/.test(profileData.email))
+      newErrors.email = "Enter a valid email.";
+    if (!profileData.username) newErrors.username = "Username is required.";
+    if (!profileData.password || profileData.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters.";
+    if (!profileData.city) newErrors.city = "City is required.";
+    if (!profileData.country) newErrors.country = "Country is required.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Returns true if no errors
+  };
 
   const handleSave = () => {
-    console.log("Profile Data:", profileData);
-    alert("Changes Saved!");
+    if (validateForm()) {
+      console.log("Profile Data:", profileData);
+      alert("Changes Saved!");
+    }
   };
 
   return (
@@ -46,8 +64,7 @@ const Settings = () => {
               }`}
               onClick={() => handleTabChange(tab)}
               aria-selected={activeTab === tab}
-              role="tab"
-            >
+              role="tab">
               {tab}
             </button>
           );
@@ -66,8 +83,7 @@ const Settings = () => {
             </div>
             <label
               htmlFor="imageInput"
-              className="absolute top-20 md:top-20 right-2 bg-gray-200 rounded-full p-2 cursor-pointer"
-            >
+              className="absolute top-22 md:top-20 left-20 md:right-2 bg-gray-200 rounded-full p-2 cursor-pointer">
               <FontAwesomeIcon icon={faPencilAlt} className="text-gray-700" />
             </label>
             <input
@@ -83,8 +99,7 @@ const Settings = () => {
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="name"
-                >
+                  htmlFor="name">
                   Your Name
                 </label>
                 <input
@@ -95,13 +110,15 @@ const Settings = () => {
                   id="name"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">{errors.name}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="username"
-                >
+                  htmlFor="username">
                   User Name
                 </label>
                 <input
@@ -112,13 +129,15 @@ const Settings = () => {
                   id="username"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.username && (
+                  <p className="text-red-500 text-xs">{errors.username}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="email"
-                >
+                  htmlFor="email">
                   Email
                 </label>
                 <input
@@ -129,13 +148,15 @@ const Settings = () => {
                   id="email"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-xs">{errors.email}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="password"
-                >
+                  htmlFor="password">
                   Password
                 </label>
                 <input
@@ -146,13 +167,15 @@ const Settings = () => {
                   id="password"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.password && (
+                  <p className="text-red-500 text-xs">{errors.password}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="dob"
-                >
+                  htmlFor="dob">
                   Date of Birth
                 </label>
                 <input
@@ -163,13 +186,15 @@ const Settings = () => {
                   id="dob"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.dob && (
+                  <p className="text-red-500 text-xs">{errors.dob}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="presentAddress"
-                >
+                  htmlFor="presentAddress">
                   Present Address
                 </label>
                 <input
@@ -180,13 +205,17 @@ const Settings = () => {
                   id="presentAddress"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.presentAddress && (
+                  <p className="text-red-500 text-xs">
+                    {errors.presentAddress}
+                  </p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="permanentAddress"
-                >
+                  htmlFor="permanentAddress">
                   Permanent Address
                 </label>
                 <input
@@ -197,13 +226,17 @@ const Settings = () => {
                   id="permanentAddress"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.permanentAddress && (
+                  <p className="text-red-500 text-xs">
+                    {errors.permanentAddress}
+                  </p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="city"
-                >
+                  htmlFor="city">
                   City
                 </label>
                 <input
@@ -214,13 +247,15 @@ const Settings = () => {
                   id="city"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.city && (
+                  <p className="text-red-500 text-xs">{errors.city}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="postalCode"
-                >
+                  htmlFor="postalCode">
                   Postal Code
                 </label>
                 <input
@@ -231,13 +266,15 @@ const Settings = () => {
                   id="postalCode"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.postalCode && (
+                  <p className="text-red-500 text-xs">{errors.postalCode}</p>
+                )}
               </div>
 
               <div>
                 <label
                   className="block text-sm font-medium text-gray-700"
-                  htmlFor="country"
-                >
+                  htmlFor="country">
                   Country
                 </label>
                 <input
@@ -248,14 +285,16 @@ const Settings = () => {
                   id="country"
                   className="mt-1 p-2 border border-gray-400 rounded-md w-full focus:outline-none focus:ring focus:ring-blue-300"
                 />
+                {errors.country && (
+                  <p className="text-red-500 text-xs">{errors.country}</p>
+                )}
               </div>
             </form>
 
-            <div className="flex justify-end">
+            <div className="flex justify-center w-full md:justify-end">
               <button
-                className="bg-black hover:bg-gray-500 text-white font-bold py-3 px-12 rounded-lg focus:outline-none focus:ring focus:ring-blue-300 "
-                onClick={handleSave}
-              >
+                className="bg-black hover:bg-gray-500 text-white font-bold py-3 px-12 rounded-lg focus:outline-none  "
+                onClick={handleSave}>
                 Save
               </button>
             </div>
