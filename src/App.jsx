@@ -1,19 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import CardList from "./components/CardList";
-import TransactionList from "./components/TransactionList";
-import ExpenseChart from "./components/ExpenseChart";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

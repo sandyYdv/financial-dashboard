@@ -57,9 +57,9 @@ const ExpenseChart = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg p-6 w-80">
+    <div className="  w-80">
       <h2 className="text-xl font-semibold mb-4">Expense Statistics</h2>
-      <div className="relative h-64">
+      <div className="relative h-64 bg-white rounded-lg p-6">
         <Pie
           key={JSON.stringify(data)}
           data={data}

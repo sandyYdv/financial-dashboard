@@ -4,7 +4,7 @@ import { useAppContext } from "../context/AppContext";
 const TransactionList = () => {
   const { transactions } = useAppContext();
   return (
-    <div className="p-5  rounded-lg w-80">
+    <div className="p-5 bg-gray-100 rounded-lg w-80">
       <h2 className="text-xl font-semibold mb-4">Recent Transaction</h2>
       <div className="bg-white rounded-lg p-4">
         {transactions.map((transaction, index) => (

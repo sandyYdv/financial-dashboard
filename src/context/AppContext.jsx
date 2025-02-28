@@ -4,6 +4,8 @@ import {
   transactions,
   expenses,
   balanceHistory,
+  weeklyActivity,
+  quickTransfer,
 } from "../data/mockData";
 
 const AppContext = createContext();
@@ -11,7 +13,14 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
-      value={{ cards, transactions, expenses, balanceHistory }}>
+      value={{
+        cards,
+        transactions,
+        expenses,
+        balanceHistory,
+        weeklyActivity,
+        quickTransfer,
+      }}>
       {children}
     </AppContext.Provider>
   );

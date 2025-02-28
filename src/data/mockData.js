@@ -46,4 +46,38 @@ export const expenses = [
   { category: "Others", amount: 300 },
 ];
 
-export const balanceHistory = [5000, 5200, 4800, 5300, 5500, 5700];
+export const balanceHistory = [
+  { month: "Jul", balance: 5000 },
+  { month: "Aug", balance: 5200 },
+  { month: "Sep", balance: 4800 },
+  { month: "Oct", balance: 5300 },
+  { month: "Nov", balance: 5500 },
+  { month: "Dec", balance: 5700 },
+];
+export const weeklyActivity = [
+  { day: "Sat", deposit: 200, withdraw: 500 },
+  { day: "Sun", deposit: 100, withdraw: 350 },
+  { day: "Mon", deposit: 300, withdraw: 450 },
+  { day: "Tue", deposit: 400, withdraw: 500 },
+  { day: "Wed", deposit: 150, withdraw: 120 },
+  { day: "Thu", deposit: 250, withdraw: 400 },
+  { day: "Fri", deposit: 280, withdraw: 390 },
+];
+
+export const quickTransfer = [
+  {
+    avtar: "HJ",
+    name: "Henna John",
+    designation: "CEO",
+  },
+  {
+    avtar: "RP",
+    name: "Randy Press",
+    designation: "Director",
+  },
+  {
+    avtar: "WM",
+    name: "Workman",
+    designation: "Designer",
+  },
+];

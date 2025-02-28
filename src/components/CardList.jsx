@@ -7,8 +7,8 @@ const CardList = () => {
   console.log("Cards", cards);
 
   return (
-    <div className="p-4 bg-gray-100">
-      <div className="flex justify-between items-center mb-4">
+    <div>
+      <div className="flex justify-between items-center mb-3">
         <h3 className="text-xl font-semibold">My Cards</h3>
         <a href="#" className="text-blue-500">
           See All
@@ -19,12 +19,11 @@ const CardList = () => {
           return (
             <div
               key={i}
-              className={`rounded-xl p-4 w-100  ${
+              className={`rounded-xl p-4 w-full mr-2  ${
                 i % 2 === 0
                   ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white"
                   : "bg-white shadow-md"
-              }`}
-            >
+              }`}>
               <div className="flex justify-between items-center mb-4">
                 <div>
                   <label className="text-xs font-semibold uppercase text-gray-400">
@@ -51,8 +50,7 @@ const CardList = () => {
               <div
                 className={`mt-4 flex justify-between items-center p-4 ${
                   i % 2 === 0 ? "bg-[#5B5A6F]" : ""
-                }`}
-              >
+                }`}>
                 <p className="font-mono">{card?.number}</p>
                 <div
                   className={`w-8 h-5 rounded-full ${
