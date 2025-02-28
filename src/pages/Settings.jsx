@@ -60,7 +60,7 @@ const Settings = () => {
             <button
               key={index}
               className={`px-4 py-2 text-gray font-semibold  outline-none rounded-md focus:outline-none   ${
-                activeTab === tab ? " text-black" : " text-gray-400 "
+                activeTab === tab ? " text-black border-b-4" : " text-gray-400 "
               }`}
               onClick={() => handleTabChange(tab)}
               aria-selected={activeTab === tab}

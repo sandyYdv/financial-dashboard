@@ -4,6 +4,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import ProfileImage from "../assets/image-1.webp";
 import { IoSettingsOutline } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 
 const preloadImage = (src) => {
   const link = document.createElement("link");
@@ -41,11 +42,14 @@ const Navbar = ({ toggleSidebar }) => {
         {/* Navbar Content */}
         <div className="flex  ">
           {/* Search Bar (Hidden on Mobile) */}
-          <input
-            type="text"
-            placeholder="Search for something"
-            className="hidden md:flex md:border md:p-2 md:rounded-lg m-3"
-          />
+          <div className="relative w-full max-w-xs mt-5">
+            <FaSearch className="absolute left-3 top-6 transform -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search for something"
+              className="hidden md:flex md:border md:border-gray-400 md:p-2 md:rounded-lg  md:pl-10"
+            />
+          </div>
 
           {/* Icons & Profile */}
           <div className="hidden md:flex md:m-3 md:p-2">
@@ -61,11 +65,14 @@ const Navbar = ({ toggleSidebar }) => {
 
       {/* Search Bar (Visible Only on Mobile) */}
       <div className="flex justify-center items-center w-full md:hidden">
-        <input
-          type="text"
-          placeholder="Search for something"
-          className="border p-2 rounded-lg m-3 w-full"
-        />
+        <div className="relative w-full max-w-xs">
+          <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Search for something"
+            className="border border-gray-400 p-2 rounded-lg m-3 w-full pl-10"
+          />
+        </div>
       </div>
     </>
   );
