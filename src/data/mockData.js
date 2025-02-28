@@ -1,3 +1,6 @@
+import Profile1 from "../assets/profile-1.jpg";
+import Profile2 from "../assets/profile-2.jpg";
+import Profile3 from "../assets/profile-3.jpg";
 export const cards = [
   {
     id: 1,
@@ -50,8 +53,8 @@ export const balanceHistory = [
   { month: "Jul", balance: 5000 },
   { month: "Aug", balance: 5200 },
   { month: "Sep", balance: 4800 },
-  { month: "Oct", balance: 5300 },
-  { month: "Nov", balance: 5500 },
+  { month: "Oct", balance: 3000 },
+  { month: "Nov", balance: 3500 },
   { month: "Dec", balance: 5700 },
 ];
 export const weeklyActivity = [
@@ -66,18 +69,32 @@ export const weeklyActivity = [
 
 export const quickTransfer = [
   {
-    avtar: "HJ",
+    avtar: Profile1,
     name: "Henna John",
     designation: "CEO",
   },
   {
-    avtar: "RP",
+    avtar: Profile2,
     name: "Randy Press",
     designation: "Director",
   },
   {
-    avtar: "WM",
+    avtar: Profile3,
     name: "Workman",
     designation: "Designer",
   },
 ];
+
+export const user = {
+  name: "Charlene Reed",
+  username: "Charlione Reed",
+  email: "charlenereed@gmail.com",
+  password: "",
+  dob: "25 January 1990",
+  presentAddress: "San Jose, California, USA",
+  permanentAddress: "San Jose, California, USA",
+  city: "San Jose",
+  postalCode: "452",
+  country: "USA",
+  profilePicture: null,
+};

@@ -6,6 +6,7 @@ import {
   balanceHistory,
   weeklyActivity,
   quickTransfer,
+  user,
 } from "../data/mockData";
 
 const AppContext = createContext();
@@ -20,7 +21,9 @@ export const AppProvider = ({ children }) => {
         balanceHistory,
         weeklyActivity,
         quickTransfer,
-      }}>
+        user,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

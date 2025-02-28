@@ -28,7 +28,7 @@ const WeeklyActivityChart = () => {
       {
         label: "Deposit",
         data: weeklyActivity.map((item) => item.deposit),
-        backgroundColor: "#3b82f6", // Tailwind blue-500
+        backgroundColor: "#3b82f6",
         barThickness: 15,
         borderRadius: 10,
         barPercentage: 0.6,
@@ -36,7 +36,7 @@ const WeeklyActivityChart = () => {
       {
         label: "Withdraw",
         data: weeklyActivity.map((item) => item.withdraw),
-        backgroundColor: "#1f2937", // Tailwind gray-800
+        backgroundColor: "#1f2937",
         barThickness: 15,
         borderRadius: 10,
         barPercentage: 0.6,
@@ -54,6 +54,9 @@ const WeeklyActivityChart = () => {
           usePointStyle: true,
           pointStyle: "circle",
           padding: 20,
+        },
+        datalabels: {
+          display: false,
         },
       },
       tooltip: {
@@ -83,10 +86,10 @@ const WeeklyActivityChart = () => {
       y: {
         beginAtZero: true,
         grid: {
-          color: "#e5e7eb", // Tailwind gray-200
+          color: "#e5e7eb",
         },
         ticks: {
-          stepSize: 100, // Customize step size as needed
+          stepSize: 100,
         },
       },
     },
@@ -96,7 +99,6 @@ const WeeklyActivityChart = () => {
     <div className="">
       <h2 className="text-lg font-semibold mb-4">Weekly Activity</h2>
       <div className="rounded-lg h-[300px] bg-white">
-        {/* Add w-full */}
         <Bar data={data} options={options} />
       </div>
     </div>

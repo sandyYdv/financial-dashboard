@@ -48,6 +48,9 @@ const BalanceHistoryChart = () => {
       legend: {
         display: false,
       },
+      datalabels: {
+        display: false,
+      },
     },
     scales: {
       x: {
@@ -58,9 +61,9 @@ const BalanceHistoryChart = () => {
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 1000, // Adjust step size as needed
+          stepSize: 2000,
           callback: function (value, index, values) {
-            return value; // Display full number without formatting
+            return value;
           },
         },
       },
@@ -69,8 +72,7 @@ const BalanceHistoryChart = () => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-lg font-semibold mb-4">Balance History</h2>
-      <div style={{ height: "300px" }}>
+      <div style={{ height: "190px" }}>
         <Line data={data} options={options} />
       </div>
     </div>
